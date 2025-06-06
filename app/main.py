@@ -21,14 +21,14 @@ async def extract_audio(youtube_url: str, user_id: str, score_id: str):
         # supabase 파일 업로드
         upload_results = []
         
-        original_result = await upload_file(f'downloads/{file_name}.mp3', f'/{user_id}/{score_id}/audio/original.mp3')
+        original_result = await upload_file(f'downloads/{file_name}.mp3', f'/{user_id}/{score_id}/original.mp3')
         upload_results.append(original_result)
 
         parts = ['bass', 'drums', 'guitar', 'other', 'piano', 'vocals']
         for part in parts:
             result = await upload_file(
                 f'separated/htdemucs_6s/{file_name}/{part}.mp3',
-                f'/{user_id}/{score_id}/audio/{part}.mp3'
+                f'/{user_id}/{score_id}/{part}.mp3'
             )
             upload_results.append(result)
 
