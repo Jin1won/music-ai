@@ -24,7 +24,7 @@ async def extract_audio(youtube_url: str, user_id: str, score_id: str):
         original_result = await upload_file(f'downloads/{file_name}.mp3', f'/{user_id}/{score_id}/original.mp3')
         upload_results.append(original_result)
 
-        parts = ['bass', 'drums', 'guitar', 'other', 'piano', 'vocals']
+        parts = ['bass', 'drum', 'guitar', 'other', 'piano', 'vocal']
         for part in parts:
             result = await upload_file(
                 f'separated/htdemucs_6s/{file_name}/{part}.mp3',
